@@ -1,18 +1,17 @@
 import { Reveal } from "@/app/components/motion/reveal";
 import { Card } from "@/app/components/ui/card";
 
-const testimonials = [
+const credentials = [
   {
-    quote:
-      "Alex is a rare find. Not only is he an exceptional coder, but his understanding of business goals and user psychology sets him apart. He transformed our vision into a reality that exceeded expectations.",
-    name: "Sarah Jenkins",
-    role: "CEO at NovaBank",
+    title: "Full stack MERN development (Advance)",
+    meta: "Ostad.app • Apr 1, 2023 — Dec 30, 2023",
+    desc:
+      "Advance full stack web application development: MongoDB, Express.js, React.js, and Node.js.",
   },
   {
-    quote:
-      "We hired Alex to lead our cloud migration, and it was the smoothest transition we've ever had. His technical depth is matched only by his clear communication and professionalism.",
-    name: "Marcus Thorne",
-    role: "CTO at EcoStream",
+    title: "Full stack MERN development",
+    meta: "Programming Hero • Jun 1, 2021 — Dec 31, 2021",
+    desc: "MERN Stack development training and project-based learning.",
   },
 ] as const;
 
@@ -26,16 +25,16 @@ export function TestimonialsRow() {
             <p className="text-label-md text-primary/70">TRUST</p>
           </div>
           <h2 className="font-display mt-6 text-4xl font-semibold tracking-[-0.02em] text-foreground">
-            What Clients Say
+            Training & Certifications
           </h2>
         </div>
       </Reveal>
 
       <Reveal delay={0.05}>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {testimonials.map((t) => (
+          {credentials.map((t) => (
             <Card
-              key={t.name}
+              key={t.title}
               className="bg-surface-low p-8"
             >
               <div className="flex gap-1 text-primary">
@@ -46,13 +45,13 @@ export function TestimonialsRow() {
                 ))}
               </div>
 
-              <p className="mt-6 text-sm leading-7 text-foreground/75">“{t.quote}”</p>
+              <p className="mt-6 text-sm leading-7 text-foreground/75">{t.desc}</p>
 
               <div className="mt-8 flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-surface-variant" />
                 <div>
-                  <p className="text-sm font-semibold text-foreground">{t.name}</p>
-                  <p className="mt-0.5 text-xs text-foreground/60">{t.role}</p>
+                  <p className="text-sm font-semibold text-foreground">{t.title}</p>
+                  <p className="mt-0.5 text-xs text-foreground/60">{t.meta}</p>
                 </div>
               </div>
             </Card>

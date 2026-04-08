@@ -6,24 +6,24 @@ import { Card } from "@/app/components/ui/card";
 const timeline = [
   {
     range: "2021 — PRESENT",
-    title: "Senior Frontend Engineer",
-    meta: "TechGiant Solutions • San Francisco",
+    title: "Sr. Web Developer",
+    meta: "Cut Out Image, Inc. • Dhaka",
     desc:
-      "Leading the UI modernization of a legacy platform serving 5M+ monthly active users. Implemented a custom design system that reduced development time by 40%.",
+      "React, Node.js, MongoDB/Mongoose, and WordPress theme & plugin development.",
   },
   {
-    range: "2018 — 2021",
-    title: "Full Stack Developer",
-    meta: "Innovate Startup • Remote",
+    range: "2021",
+    title: "Web Developer",
+    meta: "Clipping World Bangladesh • Dhaka",
     desc:
-      "Developed core features for a SaaS productivity tool. Orchestrated the migration from monolith to serverless architecture using AWS Lambda.",
+      "Built responsive web interfaces with JavaScript and React and contributed to delivery-focused development work.",
   },
   {
-    range: "2016 — 2018",
-    title: "UI Developer",
-    meta: "Creative Agency X • New York",
+    range: "2020 — 2021",
+    title: "Web & SEO Development",
+    meta: "Shohag Logistics and Security Service LTD • Dhaka",
     desc:
-      "Crafted award-winning marketing sites and interactive prototypes for global brands. Specialized in SVG animations and performance optimization.",
+      "SEO and digital marketing with WordPress development and theme work.",
   },
 ] as const;
 
@@ -43,8 +43,8 @@ export function RoadmapSection() {
               Roadmap
             </h2>
             <p className="mt-6 max-w-md text-sm leading-7 text-foreground/70">
-              A decade of solving complex problems and delivering high-impact
-              software across various industries.
+              A snapshot of my experience and progression across web development
+              and modern full-stack work.
             </p>
 
             <Card className="mt-10 bg-surface-low p-6">
@@ -52,15 +52,15 @@ export function RoadmapSection() {
               <ul className="mt-4 space-y-3 text-sm text-foreground/65">
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                  Scaling micro-frontend architectures for enterprise clients.
+                  Building responsive, performance-focused UI with React and Tailwind CSS.
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                  Mentoring junior developers and improving team productivity.
+                  Developing APIs and full-stack features using Node.js and MongoDB.
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                  Exploring AI integration in modern development workflows.
+                  WordPress theme and plugin development with security and SEO awareness.
                 </li>
               </ul>
             </Card>

@@ -12,17 +12,16 @@ import {
 
 import { Reveal } from "@/app/components/motion/reveal";
 import { Card } from "@/app/components/ui/card";
-import { Progress } from "@/app/components/ui/progress";
 
 const items = [
-  { title: "Frontend Development", pct: 98, icon: Laptop },
-  { title: "Backend Architecture", pct: 92, icon: Server },
-  { title: "Cloud Infrastructure", pct: 85, icon: Cloud },
-  { title: "Mobile Applications", pct: 78, icon: Cpu },
-  { title: "UI/UX Design", pct: 88, icon: Paintbrush },
-  { title: "API Integration", pct: 95, icon: Code2 },
-  { title: "DevOps & CI/CD", pct: 82, icon: Wrench },
-  { title: "Security Auditing", pct: 75, icon: Shield },
+  { title: "React & JavaScript", icon: Laptop },
+  { title: "Node.js & REST APIs", icon: Server },
+  { title: "MongoDB & MySQL", icon: Cloud },
+  { title: "WordPress (Themes/Plugins)", icon: Cpu },
+  { title: "Tailwind CSS", icon: Paintbrush },
+  { title: "Git Version Control", icon: Wrench },
+  { title: "PHP", icon: Shield },
+  { title: "Performance & SEO", icon: Code2 },
 ] as const;
 
 export function ArsenalGrid() {
@@ -60,14 +59,6 @@ export function ArsenalGrid() {
                       {it.title}
                     </p>
                   </div>
-                  <p className="text-xs font-semibold text-foreground/70">
-                    {it.pct}%
-                  </p>
-                </div>
-
-                <p className="mt-3 text-xs text-foreground/55">Proficiency</p>
-                <div className="mt-3">
-                  <Progress value={it.pct} />
                 </div>
               </Card>
             );

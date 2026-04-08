@@ -8,11 +8,13 @@ import {
   Mail,
   MapPin,
   GitBranch,
+  Phone,
   Globe,
   Blocks,
 } from "lucide-react";
 
 import { Reveal } from "@/app/components/motion/reveal";
+import { projects } from "@/app/lib/projects";
 
 function SidebarRow({
   icon: Icon,
@@ -89,6 +91,8 @@ const work = [
 ] as const;
 
 export function ResumeSheet() {
+  const selectedProjects = projects.slice(0, 4);
+
   return (
     <section className="mx-auto max-w-6xl px-4 pb-20">
       <Reveal>
@@ -120,6 +124,10 @@ export function ResumeSheet() {
                 </p>
                 <div className="mt-5 space-y-3">
                   <SidebarRow icon={Mail} text="armanadd01@gmail.com" />
+                  <SidebarRow icon={Mail} text="armanadd05@gmail.com" />
+                  <SidebarRow icon={Phone} text="01951798878" />
+                  <SidebarRow icon={Phone} text="01410798878" />
+                  <SidebarRow icon={Phone} text="01721628361" />
                   <SidebarRow icon={Globe} text="armanadd01.github.io" />
                   <SidebarRow icon={MapPin} text="Dhaka, Bangladesh" />
                   <SidebarRow icon={Link2} text="linkedin.com/in/armanadd01" />
@@ -291,41 +299,140 @@ export function ResumeSheet() {
                       </div>
                     </div>
                   </div>
+
+                  <div className="card-luminal mt-6 rounded-2xl bg-surface-low p-7">
+                    <p className="text-sm font-semibold text-foreground">
+                      HSC — Humanities
+                    </p>
+                    <p className="mt-2 text-xs font-semibold text-primary/80">
+                      Bhawal Badre Alam Govt. College
+                    </p>
+                    <p className="mt-3 text-sm text-muted">CGPA: 2.75 out of 5 (2019)</p>
+                  </div>
+
+                  <div className="card-luminal mt-6 rounded-2xl bg-surface-low p-7">
+                    <p className="text-sm font-semibold text-foreground">SSC — Science</p>
+                    <p className="mt-2 text-xs font-semibold text-primary/80">
+                      Rotary School And College
+                    </p>
+                    <p className="mt-3 text-sm text-muted">2017</p>
+                  </div>
                 </div>
 
                 <div>
                   <SectionTitle icon={LinkIcon} title="Selected Projects" />
 
                   <div className="mt-7 grid gap-6 md:grid-cols-2">
-                    <div className="card-luminal rounded-2xl bg-surface-low p-7">
-                      <p className="text-sm font-semibold text-foreground">
-                        Sultana Resort Niagara
-                      </p>
-                      <p className="mt-3 text-sm leading-7 text-muted">
-                        Built the official website using WordPress and developed
-                        custom plugins for booking and pricing integration with
-                        a focus on security and responsive UX.
-                      </p>
-                      <div className="mt-5 flex items-center gap-2 text-xs font-semibold text-primary/80">
-                        <Globe className="h-4 w-4" />
-                        sultanaresortniagara.ca
+                    {selectedProjects.map((p) => (
+                      <div key={p.slug} className="card-luminal rounded-2xl bg-surface-low p-7">
+                        <p className="text-sm font-semibold text-foreground">{p.title}</p>
+                        <p className="mt-3 text-sm leading-7 text-muted">{p.description}</p>
+                        {p.links[0]?.href ? (
+                          <div className="mt-5 flex items-center gap-2 text-xs font-semibold text-primary/80">
+                            <Globe className="h-4 w-4" />
+                            {p.links[0].href.replace(/^https?:\/\//, "")}
+                          </div>
+                        ) : null}
                       </div>
-                    </div>
+                    ))}
+                  </div>
+                </div>
 
+                <div>
+                  <SectionTitle icon={Blocks} title="Training Summary" />
+                  <div className="mt-7 grid gap-6">
                     <div className="card-luminal rounded-2xl bg-surface-low p-7">
                       <p className="text-sm font-semibold text-foreground">
-                        Larky Parky
+                        Advance MERN full stack developer
                       </p>
-                      <p className="mt-3 text-sm leading-7 text-muted">
-                        High-performance web app with React and Tailwind CSS.
-                        Used Node.js for custom APIs and optimized for strong
-                        Lighthouse scores.
+                      <p className="mt-2 text-xs font-semibold text-primary/80">
+                        Ostad app • Dhaka • 2023 • Duration: 6
                       </p>
-                      <div className="mt-5 flex items-center gap-2 text-xs font-semibold text-primary/80">
-                        <Globe className="h-4 w-4" />
-                        larkyparky.com
-                      </div>
+                      <p className="mt-4 text-sm leading-7 text-muted">
+                        Advance Full stack web application development, Mongo, ExpressJs, ReactJs, Node.js
+                      </p>
                     </div>
+                    <div className="card-luminal rounded-2xl bg-surface-low p-7">
+                      <p className="text-sm font-semibold text-foreground">MERN Stack development</p>
+                      <p className="mt-2 text-xs font-semibold text-primary/80">
+                        Programing hero • Dhaka • 2021 • Duration: 5 months
+                      </p>
+                      <p className="mt-4 text-sm leading-7 text-muted">MERN Stack</p>
+                    </div>
+                    <div className="card-luminal rounded-2xl bg-surface-low p-7">
+                      <p className="text-sm font-semibold text-foreground">Advanced Web Development</p>
+                      <p className="mt-2 text-xs font-semibold text-primary/80">
+                        Institute of Coders Core • Dhaka • 2016 • Duration: 6 month
+                      </p>
+                      <p className="mt-4 text-sm leading-7 text-muted">
+                        HTML5, CSS3, Bootstrap, JQuery, PHP, WordPress
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <SectionTitle icon={Blocks} title="Professional Qualification" />
+                  <div className="mt-7 grid gap-6">
+                    <div className="card-luminal rounded-2xl bg-surface-low p-7">
+                      <p className="text-sm font-semibold text-foreground">
+                        Full stack MERN development (Advance)
+                      </p>
+                      <p className="mt-2 text-xs font-semibold text-primary/80">
+                        Ostad.app • Dhaka • April 1, 2023 — December 30, 2023
+                      </p>
+                    </div>
+                    <div className="card-luminal rounded-2xl bg-surface-low p-7">
+                      <p className="text-sm font-semibold text-foreground">Full stack MERN development</p>
+                      <p className="mt-2 text-xs font-semibold text-primary/80">
+                        Programming hero • Dhaka • June 1, 2021 — December 31, 2021
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <SectionTitle icon={Blocks} title="Career and Application Information" />
+                  <div className="card-luminal mt-7 rounded-2xl bg-surface-low p-7">
+                    <div className="grid gap-2 text-sm text-muted">
+                      <p><span className="font-semibold text-foreground/80">Looking For:</span> Top Level Job</p>
+                      <p><span className="font-semibold text-foreground/80">Available For:</span> Full Time</p>
+                      <p><span className="font-semibold text-foreground/80">Present Salary:</span> Tk. 36200</p>
+                      <p><span className="font-semibold text-foreground/80">Expected Salary:</span> Tk. 50000</p>
+                      <p><span className="font-semibold text-foreground/80">Preferred Job Category:</span> IT/Telecommunication</p>
+                      <p><span className="font-semibold text-foreground/80">Preferred District:</span> Dhaka, Gazipur</p>
+                      <p><span className="font-semibold text-foreground/80">Preferred Country:</span> Austria, Germany, the Netherlands, Poland, and Switzerland</p>
+                      <p><span className="font-semibold text-foreground/80">Preferred Organization Types:</span> Advertising Agency, Development Agency, Developer, Cellular Phone Operator</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <SectionTitle icon={Blocks} title="Personal Details" />
+                  <div className="card-luminal mt-7 rounded-2xl bg-surface-low p-7">
+                    <div className="grid gap-2 text-sm text-muted">
+                      <p><span className="font-semibold text-foreground/80">Father&apos;s Name:</span> Habibur Rahman</p>
+                      <p><span className="font-semibold text-foreground/80">Mother&apos;s Name:</span> Nurjahan Habib</p>
+                      <p><span className="font-semibold text-foreground/80">Date of Birth:</span> 21 Feb 2002</p>
+                      <p><span className="font-semibold text-foreground/80">Gender:</span> Male</p>
+                      <p><span className="font-semibold text-foreground/80">Height (Meter):</span> 1.6256</p>
+                      <p><span className="font-semibold text-foreground/80">Weight (Kg):</span> 58</p>
+                      <p><span className="font-semibold text-foreground/80">Marital Status:</span> Married</p>
+                      <p><span className="font-semibold text-foreground/80">Nationality:</span> Bangladeshi</p>
+                      <p><span className="font-semibold text-foreground/80">Religion:</span> Islam</p>
+                      <p><span className="font-semibold text-foreground/80">Permanent Address:</span> Tamni Akand Para, Karimganj, Karimganj, Kishoreganj 2310</p>
+                      <p><span className="font-semibold text-foreground/80">Current Location:</span> Dhaka</p>
+                      <p><span className="font-semibold text-foreground/80">Blood Group:</span> B+</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <SectionTitle icon={Blocks} title="References" />
+                  <div className="card-luminal mt-7 rounded-2xl bg-surface-low p-7">
+                    <p className="text-sm font-semibold text-foreground">Atik Rahman</p>
+                    <p className="mt-2 text-xs font-semibold text-primary/80">CEO • Multilat Inc.</p>
+                    <p className="mt-4 text-sm text-muted">Relation: Professional</p>
                   </div>
                 </div>
               </div>

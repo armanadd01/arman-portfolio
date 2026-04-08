@@ -11,115 +11,38 @@ import type { Project } from "@/app/types/project";
 import { Reveal } from "@/app/components/motion/reveal";
 import { FilterPill } from "@/app/components/ui/filter-pill";
 
-type Category = "All" | "Frontend" | "Fullstack" | "AI/ML" | "Tools";
+type Category = "All" | "Frontend" | "Fullstack" | "WordPress";
 
 type ProjectCardModel = Project & {
   category?: Exclude<Category, "All">;
   cover?: string;
 };
 
-const coverBySlug: Record<
-  string,
-  { cover: string; category: Exclude<Category, "All"> }
-> = {
-  "personal-portfolio": { cover: "/project-1.svg", category: "Frontend" },
-  "saas-dashboard": { cover: "/project-2.svg", category: "Tools" },
-  "quantum-dashboard": { cover: "/project-1.svg", category: "Frontend" },
-  "ecosphere-ai": { cover: "/project-2.svg", category: "AI/ML" },
-  "helix-ecommerce": { cover: "/project-3.svg", category: "Fullstack" },
-  "nova-crm": { cover: "/project-1.svg", category: "Fullstack" },
-  "prism-code-editor": { cover: "/project-2.svg", category: "Tools" },
-  "aura-music-player": { cover: "/project-3.svg", category: "Frontend" },
-};
+const categories: Category[] = ["All", "Frontend", "Fullstack", "WordPress"];
 
-const fallbackCards: ProjectCardModel[] = [
-  {
-    id: "quantum-dashboard",
-    slug: "quantum-dashboard",
-    title: "Quantum Dashboard",
-    description:
-      "A high-performance financial analytics platform featuring real-time data streaming and WebGL.",
-    tags: ["Next.js", "Three.js", "TailwindCSS", "Recharts"],
-    year: "2026",
-    links: [{ label: "Details", href: "/projects/quantum-dashboard" }],
-    category: "Frontend",
-    cover: "/project-1.svg",
-  },
-  {
-    id: "ecospehere-ai",
-    slug: "ecospehere-ai",
-    title: "EcoSphere AI",
-    description:
-      "Environmental monitoring system using machine learning to predict air quality indices across urban areas.",
-    tags: ["Python", "TensorFlow", "React", "FastAPI"],
-    year: "2026",
-    links: [{ label: "Details", href: "/projects/ecosphere-ai" }],
-    category: "AI/ML",
-    cover: "/project-2.svg",
-  },
-  {
-    id: "helix-commerce",
-    slug: "helix-ecommerce",
-    title: "Helix E-Commerce",
-    description:
-      "Modern headless commerce experience with seamless transitions and lightning-fast performance.",
-    tags: ["Shopify", "Remix", "TypeScript", "Redis"],
-    year: "2026",
-    links: [{ label: "Details", href: "/projects/helix-ecommerce" }],
-    category: "Fullstack",
-    cover: "/project-3.svg",
-  },
-  {
-    id: "nova-crm",
-    slug: "nova-crm",
-    title: "Nova CRM",
-    description:
-      "Customer relationship management tool optimized for distributed sales teams with real-time collaboration.",
-    tags: ["WebRTC", "PostgreSQL", "React Query", "Node.js"],
-    year: "2025",
-    links: [{ label: "Details", href: "/projects/nova-crm" }],
-    category: "Fullstack",
-    cover: "/project-1.svg",
-  },
-  {
-    id: "prism-editor",
-    slug: "prism-code-editor",
-    title: "Prism Code Editor",
-    description:
-      "A browser-based IDE with collaborative real-time editing and integrated terminal support.",
-    tags: ["Monaco Editor", "Socket.io", "Docker", "Go"],
-    year: "2025",
-    links: [{ label: "Details", href: "/projects/prism-code-editor" }],
-    category: "Tools",
-    cover: "/project-2.svg",
-  },
-  {
-    id: "aura-music",
-    slug: "aura-music-player",
-    title: "Aura Music Player",
-    description:
-      "A spatial audio music player with dynamic visualizers that respond to audio frequency data.",
-    tags: ["Web Audio API", "Svelte", "Canvas", "Firebase"],
-    year: "2025",
-    links: [{ label: "Details", href: "/projects/aura-music-player" }],
-    category: "Frontend",
-    cover: "/project-3.svg",
-  },
-];
+function deriveCategoryFromTags(tags: string[]): Exclude<Category, "All"> {
+  const normalized = tags.map((t) => t.toLowerCase());
 
-const categories: Category[] = ["All", "Frontend", "Fullstack", "AI/ML", "Tools"];
+  if (normalized.some((t) => t.includes("wordpress"))) return "WordPress";
+  if (
+    normalized.some((t) => t.includes("mern")) ||
+    (normalized.some((t) => t.includes("node")) &&
+      normalized.some((t) => t.includes("mongo")))
+  ) {
+    return "Fullstack";
+  }
+
+  return "Frontend";
+}
 
 function normalizeProjects(list: Project[]): ProjectCardModel[] {
-  const withCovers = list.map((p) => {
-    const mapped = coverBySlug[p.slug];
+  return list.map((p) => {
     return {
       ...p,
-      cover: mapped?.cover ?? "/project-1.svg",
-      category: mapped?.category ?? "Frontend",
+      cover: p.cover ?? "/project-1.svg",
+      category: deriveCategoryFromTags(p.tags),
     } satisfies ProjectCardModel;
   });
-
-  return withCovers.length >= 6 ? withCovers.slice(0, 6) : fallbackCards;
 }
 
 function ProjectCard({ project }: { project: ProjectCardModel }) {
@@ -244,7 +167,7 @@ export function ProjectsGrid() {
       </Reveal>
 
       <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {visible.slice(0, 6).map((p, idx) => (
+        {visible.map((p, idx) => (
           <Reveal key={p.slug} delay={0.05 + idx * 0.03}>
             <ProjectCard project={p} />
           </Reveal>

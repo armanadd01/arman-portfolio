@@ -113,9 +113,9 @@ export function HireHero() {
 
             <Reveal delay={0.08}>
               <p className="mt-6 max-w-xl text-sm leading-7 text-muted">
-                I specialize in transforming complex requirements into elegant
-                digital experiences. Whether you&apos;re a startup or a global
-                brand, I provide the technical excellence your project deserves.
+                I&apos;m a web developer with 6+ years of experience in JavaScript,
+                React, Node.js, PHP, and WordPress theme development. I focus on
+                clean code, scalable architecture, and responsive UI.
               </p>
             </Reveal>
 
@@ -141,19 +141,19 @@ export function HireHero() {
             <Reveal delay={0.15}>
               <div className="mt-14 grid max-w-xl grid-cols-3 gap-6">
                 <div className="border-r border-white/5 pr-6">
-                  <p className="text-lg font-semibold text-foreground">150+</p>
+                  <p className="text-lg font-semibold text-foreground">4</p>
                   <p className="mt-1 text-[10px] font-semibold tracking-widest text-foreground/50">
-                    PROJECTS DELIVERED
+                    FEATURED PROJECTS
                   </p>
                 </div>
                 <div className="border-r border-white/5 px-6">
-                  <p className="text-lg font-semibold text-foreground">50+</p>
+                  <p className="text-lg font-semibold text-foreground">2</p>
                   <p className="mt-1 text-[10px] font-semibold tracking-widest text-foreground/50">
-                    HAPPY CLIENTS
+                    EMAIL ADDRESSES
                   </p>
                 </div>
                 <div className="pl-6">
-                  <p className="text-lg font-semibold text-foreground">8+</p>
+                  <p className="text-lg font-semibold text-foreground">6+</p>
                   <p className="mt-1 text-[10px] font-semibold tracking-widest text-foreground/50">
                     YEARS EXPERIENCE
                   </p>
@@ -181,7 +181,7 @@ export function HireHero() {
                   <div className="grid gap-3">
                     <FieldLabel>NAME</FieldLabel>
                     <Input
-                      placeholder="John Doe"
+                      placeholder="e.g. Your name"
                       invalid={Boolean(errors.name)}
                       {...register("name")}
                     />
@@ -195,7 +195,7 @@ export function HireHero() {
                   <div className="grid gap-3">
                     <FieldLabel>EMAIL</FieldLabel>
                     <Input
-                      placeholder="john@example.com"
+                      placeholder="e.g. armanadd01@gmail.com"
                       autoComplete="email"
                       invalid={Boolean(errors.email)}
                       {...register("email")}
@@ -268,7 +268,7 @@ export function HireHero() {
                 </button>
 
                 <p className="mt-5 text-center text-[11px] text-foreground/45">
-                  By submitting, you agree to our Privacy Policy. No spam, ever.
+                  By submitting, you agree to be contacted by email regarding your inquiry.
                 </p>
               </form>
             </div>

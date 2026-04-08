@@ -148,7 +148,7 @@ export function ContactBody() {
                 <div className="grid gap-3">
                   <FieldLabel>Full Name</FieldLabel>
                   <Input
-                    placeholder="e.g. Alex Rivera"
+                    placeholder="e.g. Your name"
                     invalid={Boolean(errors.name)}
                     {...register("name")}
                   />
@@ -162,7 +162,7 @@ export function ContactBody() {
                 <div className="grid gap-3">
                   <FieldLabel>Email Address</FieldLabel>
                   <Input
-                    placeholder="e.g. alex@example.com"
+                    placeholder="e.g. armanadd01@gmail.com"
                     autoComplete="email"
                     invalid={Boolean(errors.email)}
                     {...register("email")}
@@ -268,7 +268,7 @@ export function ContactBody() {
                 <InfoCard icon={Mail} label="Primary Email" value="armanadd01@gmail.com" />
                 <InfoCard icon={Mail} label="Secondary Email" value="armanadd05@gmail.com" />
                 <InfoCard icon={Phone} label="Primary Phone" value="01951798878" />
-                <InfoCard icon={Phone} label="Secondary Phone" value="01721628361" />
+                <InfoCard icon={Phone} label="Secondary Phone" value="01410798878" />
                 <InfoCard
                   icon={MapPin}
                   label="Location"

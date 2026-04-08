@@ -79,7 +79,7 @@ export function HomeHero() {
                   <div className="absolute bottom-4 left-4 right-4 grid grid-cols-3 overflow-hidden rounded-2xl bg-black/10 dark:bg-white/10  backdrop-blur">
                     {[
                       { k: "Experience", v: "6+ Years" },
-                      { k: "Projects", v: "50+" },
+                      { k: "Projects", v: "4" },
                       { k: "Focus", v: "MERN + WP" },
                     ].map((s) => (
                       <div key={s.k} className="px-4 py-3">

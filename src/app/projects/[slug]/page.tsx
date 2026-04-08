@@ -7,7 +7,6 @@ import { ProjectOverview } from "@/app/sections/project-details/ProjectOverview"
 import { ChallengeSolution } from "@/app/sections/project-details/ChallengeSolution";
 import { VisualShowcase } from "@/app/sections/project-details/VisualShowcase";
 import { ResponsiveDesign } from "@/app/sections/project-details/ResponsiveDesign";
-import { ReflectionLearnings } from "@/app/sections/project-details/ReflectionLearnings";
 import { ProjectDetailsCTA } from "@/app/sections/project-details/ProjectDetailsCTA";
 
 type PageProps = {
@@ -45,6 +44,39 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
       },
     ];
 
+  const stackHighlights =
+    project.stackHighlights ??
+    (() => {
+      const tags = project.tags.map((t) => t.toLowerCase());
+
+      const hasReact = tags.some((t) => t.includes("react"));
+      const hasTailwind = tags.some((t) => t.includes("tailwind"));
+      const hasWordPress = tags.some((t) => t.includes("wordpress"));
+      const hasNode = tags.some((t) => t.includes("node"));
+      const hasMongo = tags.some((t) => t.includes("mongo"));
+      const hasPhp = tags.some((t) => t === "php" || t.includes("php"));
+      const hasMern = tags.some((t) => t.includes("mern"));
+
+      const frontend = [
+        hasReact ? "React" : null,
+        hasTailwind ? "Tailwind CSS" : null,
+        hasWordPress ? "WordPress" : null,
+      ].filter(Boolean) as string[];
+
+      const backend = [
+        hasNode ? "Node.js" : null,
+        hasMongo ? "MongoDB" : null,
+        hasPhp ? "PHP" : null,
+        hasMern && !hasMongo ? "MongoDB" : null,
+      ].filter(Boolean) as string[];
+
+      return {
+        frontend: frontend.length ? frontend : ["Web"],
+        backend: backend.length ? backend : ["Backend"],
+        tools: ["Git"],
+      };
+    })();
+
   return (
     <main>
       <ProjectDetailsHero
@@ -57,46 +89,21 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
       />
 
       <ProjectOverview
-        role={project.role ?? "Lead Frontend Architect & UI/UX Designer"}
+        role={project.role ?? "Web Developer"}
         timeframe={project.timeframe ?? project.year ?? ""}
-        client={project.client ?? "Client"}
-        overview={
-          project.overview ??
-          "Aura Banking Suite was commissioned to bridge the gap between complex institutional banking tools and the simplicity of modern consumer fintech apps. The goal was to build a system that could handle high-frequency data while remaining accessible to non-technical users."
-        }
-        stackHighlights={
-          project.stackHighlights ?? {
-            frontend: [
-              "React",
-              "TypeScript",
-              "Tailwind CSS",
-              "Framer Motion",
-              "D3.js",
-            ],
-            backend: ["Node.js", "PostgreSQL", "Redis", "AWS Lambda"],
-            tools: ["Figma", "Docker", "Sentry", "Vercel"],
-          }
-        }
+        client={project.client ?? project.title}
+        overview={project.overview ?? project.description}
+        stackHighlights={stackHighlights}
       />
 
       <ChallengeSolution
         challengeTitle="The Challenge"
-        challengeSubtitle="Understanding the friction points in digital wealth management."
-        challengeBody={
-          project.problem ??
-          "Traditional banking interfaces are often cluttered, slow, and lack proactive insights. Users struggle to understand their spending patterns across multiple accounts, leading to financial stress and poor decision-making."
-        }
-        objectives={[
-          "Simplify transaction complexity",
-          "Enable instant financial forecasting",
-          "Maintain bank-grade security visuals",
-        ]}
+        challengeSubtitle="Project requirements and constraints."
+        challengeBody={project.problem ?? project.description}
+        objectives={project.tags.slice(0, 3)}
         solutionTitle="The Solution"
-        solutionSubtitle="Engineering an intuitive bridge between data and users."
-        solutionBody={
-          project.solution ??
-          "We implemented a modular dashboard architecture that surfaces the most critical data first. Using React and D3.js, we created interactive visualizations that allow users to 'time-travel' through their financial history."
-        }
+        solutionSubtitle="Implementation approach."
+        solutionBody={project.solution ?? project.overview ?? project.description}
       />
 
       <VisualShowcase
@@ -104,9 +111,7 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
           {
             src: gallery[0]?.src ?? "/project-2.svg",
             alt: gallery[0]?.alt ?? "Showcase",
-            caption:
-              gallery[0]?.caption ??
-              "Showing 1 of 3: Panoramic dashboard view of Aura Banking Suite showing wealth distribution charts",
+            caption: gallery[0]?.caption ?? "Showing 1 of 3",
           },
           {
             src: gallery[1]?.src ?? "/project-3.svg",
@@ -125,15 +130,6 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
         desktop={gallery[0]?.src ?? "/project-1.svg"}
         tablet={gallery[1]?.src ?? "/project-2.svg"}
         mobile={gallery[2]?.src ?? "/project-3.svg"}
-      />
-
-      <ReflectionLearnings
-        image={gallery[2]?.src ?? "/project-3.svg"}
-        items={[
-          "Handling high-volume WebSocket data requires robust state management strategies beyond standard context.",
-          "Designing for accessibility in financial apps involves complex color-contrast challenges for data-rich charts.",
-          "User trust is built through UI transparency; explaining 'why' an AI recommendation was made is as important as the recommendation itself.",
-        ]}
       />
 
       <ProjectDetailsCTA />

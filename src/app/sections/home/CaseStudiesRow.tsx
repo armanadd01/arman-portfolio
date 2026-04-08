@@ -3,27 +3,9 @@ import Link from "next/link";
 
 import { Reveal } from "@/app/components/motion/reveal";
 import { Card } from "@/app/components/ui/card";
+import { projects } from "@/app/lib/projects";
 
-const caseStudies = [
-  {
-    title: "NovaBank App",
-    tags: ["React Native", "FinTech", "AWS"],
-    img: "/project-1.svg",
-    href: "/projects",
-  },
-  {
-    title: "Lumina Dash",
-    tags: ["Next.js", "D3.js", "PostgreSQL"],
-    img: "/project-2.svg",
-    href: "/projects",
-  },
-  {
-    title: "EcoStream Commerce",
-    tags: ["TypeScript", "Shopify", "Tailwind"],
-    img: "/project-3.svg",
-    href: "/projects",
-  },
-] as const;
+const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
 export function CaseStudiesRow() {
   return (
@@ -36,7 +18,7 @@ export function CaseStudiesRow() {
               <p className="text-label-md text-primary/70">PORTFOLIO</p>
             </div>
             <h2 className="font-display mt-6 text-4xl font-semibold tracking-[-0.02em] text-foreground">
-              Featured Case Studies
+              Featured Projects
             </h2>
           </div>
           <Link
@@ -50,16 +32,16 @@ export function CaseStudiesRow() {
 
       <Reveal delay={0.05}>
         <div className="mt-8 grid gap-3 md:grid-cols-3">
-          {caseStudies.map((c) => (
+          {featuredProjects.map((c) => (
             <Link
               key={c.title}
-              href={c.href}
+              href={`/projects/${c.slug}`}
               className="group rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60 active:translate-y-px"
             >
               <Card className="overflow-hidden bg-surface-low p-0">
                 <div className="relative aspect-[16/10]">
                   <Image
-                    src={c.img}
+                    src={c.cover ?? "/project-1.svg"}
                     alt={c.title}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
@@ -68,7 +50,7 @@ export function CaseStudiesRow() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/0" />
                   <div className="absolute inset-x-0 top-0 p-5">
                     <div className="flex flex-wrap gap-2">
-                      {c.tags.map((t) => (
+                      {c.tags.slice(0, 3).map((t) => (
                         <span
                           key={t}
                           className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80"
