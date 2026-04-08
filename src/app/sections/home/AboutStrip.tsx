@@ -7,23 +7,23 @@ import { Reveal } from "@/app/components/motion/reveal";
 
 const highlights = [
   {
-    title: "Remote First",
-    desc: "Expert in distributed teams and global collaboration.",
+    title: "MERN + WordPress",
+    desc: "React, Node.js, MongoDB, PHP, and custom WordPress themes/plugins.",
     icon: Globe,
   },
   {
-    title: "UX Focus",
-    desc: "Accessibility and intuitive design systems.",
+    title: "User-Centric",
+    desc: "Responsive UI, accessibility, and clean design systems.",
     icon: Sparkles,
   },
   {
-    title: "Clean Tech",
-    desc: "Optimized for performance and eco-friendly code.",
+    title: "Clean Code",
+    desc: "Scalable architecture with maintainable, readable code.",
     icon: Code2,
   },
   {
-    title: "Fast Delivery",
-    desc: "Agile methodologies for rapid, high-quality output.",
+    title: "Adaptable",
+    desc: "Strong problem-solving, teamwork, QA mindset, and fast learning.",
     icon: Rocket,
   },
 ] as const;
@@ -42,15 +42,14 @@ export function AboutStrip() {
               A Little About Me
             </h2>
             <p className="mt-6 max-w-xl text-sm leading-7 text-foreground/70">
-              I started my journey with a burning curiosity about how the web
-              works. Fast forward eight years, and I&apos;ve helped startups scale to
-              millions of users and Fortune 500 companies modernize their tech
-              stacks.
+              Experienced web developer with 6+ years in JavaScript, React,
+              Node.js, PHP, and WordPress theme development. Skilled in NoSQL and
+              MySQL databases and Tailwind CSS for responsive UIs.
             </p>
             <p className="mt-4 max-w-xl text-sm leading-7 text-foreground/70">
-              I don&apos;t just write code; I architect solutions that are scalable,
-              maintainable, and beautiful. My philosophy is simple: <span className="font-semibold text-foreground">user
-              experience is paramount.</span>
+              I&apos;m committed to clean code and robust architecture to keep
+              projects scalable and reliable. I focus on quality assurance and a
+              user-centric experience in every build.
             </p>
             <div className="mt-6">
               <div className="flex flex-wrap items-center gap-3">
@@ -59,7 +58,7 @@ export function AboutStrip() {
                 </Button>
                 <Link
                   href="/resume"
-                  className="text-sm font-medium text-foreground/70 hover:text-foreground"
+                  className="rounded-md text-sm font-semibold text-foreground/70 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60 active:translate-y-px"
                 >
                   Download Resume
                 </Link>

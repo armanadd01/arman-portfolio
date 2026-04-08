@@ -18,9 +18,8 @@ export function NavigationMenuTrigger({
     <NavigationMenuPrimitive.Trigger
       className={cn(
         "inline-flex h-10 items-center justify-center rounded-xl px-4 text-sm font-medium",
-        "text-zinc-700 transition-colors hover:bg-zinc-100",
-        "dark:text-zinc-200 dark:hover:bg-zinc-900",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:focus-visible:ring-zinc-600",
+        "text-foreground/75 transition-colors hover:bg-[var(--surface-container-low)] hover:text-foreground",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60",
         className,
       )}
       {...props}
@@ -35,8 +34,8 @@ export function NavigationMenuContent({
   return (
     <NavigationMenuPrimitive.Content
       className={cn(
-        "absolute left-0 top-full mt-2 w-72 rounded-2xl border border-zinc-200 bg-white p-2 shadow-lg",
-        "dark:border-zinc-800 dark:bg-zinc-950",
+        "absolute left-0 top-full mt-2 w-72 rounded-2xl glass p-2",
+        "outline outline-1 outline-[var(--card-stroke)] glow-cyan",
         className,
       )}
       {...props}

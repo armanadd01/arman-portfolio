@@ -11,18 +11,18 @@ const fontVars = "font-sans";
 
 export const metadata: Metadata = {
   title: {
-    default: "Your Name — Portfolio",
-    template: "%s — Your Name",
+    default: "Md Arman Habib Nahid — Portfolio",
+    template: "%s — Md Arman Habib Nahid",
   },
   description:
-    "High-performance personal portfolio built with Next.js, TypeScript, Tailwind, Radix UI, and Framer Motion.",
-  metadataBase: new URL("https://example.com"),
+    "Portfolio of Md Arman Habib Nahid — web developer specializing in React, Node.js, and WordPress.",
+  metadataBase: new URL("https://armanadd01.github.io"),
   openGraph: {
-    title: "Your Name — Portfolio",
+    title: "Md Arman Habib Nahid — Portfolio",
     description:
-      "High-performance personal portfolio built with Next.js, TypeScript, Tailwind, Radix UI, and Framer Motion.",
-    url: "https://example.com",
-    siteName: "Your Name",
+      "Portfolio of Md Arman Habib Nahid — web developer specializing in React, Node.js, and WordPress.",
+    url: "https://armanadd01.github.io",
+    siteName: "Md Arman Habib Nahid",
     locale: "en_US",
     type: "website",
   },

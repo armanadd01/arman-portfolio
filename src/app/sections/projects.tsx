@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 
 import { projects } from "@/app/lib/projects";
 import type { Project } from "@/app/types/project";
@@ -9,18 +10,18 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/app/components/ui/ta
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group rounded-2xl surface-container-low p-6 transition-transform duration-200 hover:scale-[1.02]">
+    <article className="card-luminal group rounded-2xl bg-surface-low p-6 transition-transform duration-200 hover:scale-[1.02]">
       <div className="flex items-start justify-between gap-4">
-        <h3 className="font-display text-lg font-semibold text-[var(--foreground)]">
+        <h3 className="font-display text-lg font-semibold text-foreground">
           {project.title}
         </h3>
         {project.year ? (
-          <span className="text-label-md text-[color:rgba(229,226,225,0.55)]">
+          <span className="text-label-md text-foreground/55">
             {project.year}
           </span>
         ) : null}
       </div>
-      <p className="text-body-lg mt-3 text-[color:rgba(229,226,225,0.72)]">
+      <p className="text-body-lg mt-3 text-muted">
         {project.description}
       </p>
 
@@ -28,7 +29,7 @@ function ProjectCard({ project }: { project: Project }) {
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full bg-[var(--surface-variant)] px-3 py-1 text-xs text-[color:rgba(229,226,225,0.72)]"
+            className="rounded-full bg-black/10 px-3 py-1 text-xs font-semibold text-foreground/70 outline outline-1 outline-[rgba(255,255,255,0.06)] dark:bg-white/10"
           >
             {tag}
           </span>
@@ -37,15 +38,15 @@ function ProjectCard({ project }: { project: Project }) {
 
       <div className="mt-6 flex flex-wrap gap-3">
         {project.links.map((l) => (
-          <a
+          <Link
             key={l.href}
             href={l.href}
-            className="text-sm font-medium text-[var(--primary)] underline-offset-4 hover:underline"
             target={l.href.startsWith("http") ? "_blank" : undefined}
             rel={l.href.startsWith("http") ? "noreferrer" : undefined}
+            className="text-sm font-semibold text-primary/85 hover:text-primary"
           >
             {l.label}
-          </a>
+          </Link>
         ))}
       </div>
     </article>
@@ -63,13 +64,13 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-4 py-20">
       <Reveal>
-        <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+        <h2 className="font-display text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">
           Projects
         </h2>
       </Reveal>
 
       <Reveal delay={0.05}>
-        <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
           A data-driven projects grid rendered from a typed source. Swap the
           implementation to a CMS later without changing UI components.
         </p>

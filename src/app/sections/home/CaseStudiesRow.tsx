@@ -41,7 +41,7 @@ export function CaseStudiesRow() {
           </div>
           <Link
             href="/projects"
-            className="hidden h-10 items-center justify-center rounded-full bg-surface-low px-5 text-sm font-medium text-foreground/80 hover:text-foreground md:inline-flex"
+            className="hidden h-10 items-center justify-center rounded-full bg-surface-low px-5 text-sm font-semibold text-foreground/80 transition-all hover:bg-surface-high hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60 active:translate-y-px md:inline-flex"
           >
             View All Projects
           </Link>
@@ -51,8 +51,12 @@ export function CaseStudiesRow() {
       <Reveal delay={0.05}>
         <div className="mt-8 grid gap-3 md:grid-cols-3">
           {caseStudies.map((c) => (
-            <Link key={c.title} href={c.href} className="group">
-              <Card className="bg-surface-low p-0 overflow-hidden">
+            <Link
+              key={c.title}
+              href={c.href}
+              className="group rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60 active:translate-y-px"
+            >
+              <Card className="overflow-hidden bg-surface-low p-0">
                 <div className="relative aspect-[16/10]">
                   <Image
                     src={c.img}
@@ -90,7 +94,7 @@ export function CaseStudiesRow() {
         <div className="mt-10 flex justify-center md:hidden">
           <Link
             href="/projects"
-            className="h-10 inline-flex items-center justify-center rounded-full bg-surface-low px-5 text-sm font-medium text-foreground/80 hover:text-foreground"
+            className="inline-flex h-10 items-center justify-center rounded-full bg-surface-low px-5 text-sm font-semibold text-foreground/80 transition-all hover:bg-surface-high hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60 active:translate-y-px"
           >
             View All Projects
           </Link>

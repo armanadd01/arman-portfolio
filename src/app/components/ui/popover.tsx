@@ -18,8 +18,8 @@ export function PopoverContent({
       <PopoverPrimitive.Content
         sideOffset={sideOffset}
         className={cn(
-          "z-50 w-80 rounded-xl border border-zinc-200 bg-white p-4 shadow-lg",
-          "dark:border-zinc-800 dark:bg-zinc-950",
+          "z-50 w-80 rounded-2xl glass p-4",
+          "outline outline-1 outline-[var(--card-stroke)] glow-cyan",
           "focus:outline-none",
           className,
         )}

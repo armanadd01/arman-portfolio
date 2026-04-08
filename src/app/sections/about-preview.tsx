@@ -1,17 +1,18 @@
 import { Reveal } from "@/app/components/motion/reveal";
 import { Button } from "@/app/components/ui/button";
+import Link from "next/link";
 
 export function AboutPreviewSection() {
   return (
     <section id="about" className="mx-auto max-w-6xl px-4 py-20">
       <Reveal>
-        <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+        <h2 className="font-display text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">
           About
         </h2>
       </Reveal>
 
       <Reveal delay={0.05}>
-        <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
           A short, conversion-focused intro: your niche, what you build, and the
           outcomes you optimize for.
         </p>
@@ -20,7 +21,7 @@ export function AboutPreviewSection() {
       <Reveal delay={0.1}>
         <div className="mt-8">
           <Button variant="secondary" asChild>
-            <a href="/about">Read full story</a>
+            <Link href="/about">Read full story</Link>
           </Button>
         </div>
       </Reveal>

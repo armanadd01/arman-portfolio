@@ -13,8 +13,8 @@ const columns = [
   {
     title: "Social",
     links: [
-      { label: "GitHub", href: "https://github.com" },
-      { label: "LinkedIn", href: "https://linkedin.com" },
+      { label: "GitHub", href: "https://github.com/armanadd01" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/armanadd01" },
     ],
   },
   {
@@ -33,7 +33,7 @@ export function Footer() {
         <div className="rounded-2xl bg-surface-low p-8">
           <div className="grid gap-8 md:grid-cols-4">
             <div>
-              <p className="font-display text-lg text-foreground">Luminal</p>
+              <p className="font-display text-lg text-foreground">Arman Nahid</p>
               <p className="mt-3 text-sm leading-6 text-foreground/70">
                 Crafting digital products with performance, accessibility, and
                 editorial polish.
@@ -62,7 +62,7 @@ export function Footer() {
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-foreground/60">
-              © {new Date().getFullYear()} Your Name
+              © {new Date().getFullYear()} Md Arman Habib Nahid
             </p>
             <p className="text-sm text-foreground/60">Built with Next.js</p>
           </div>

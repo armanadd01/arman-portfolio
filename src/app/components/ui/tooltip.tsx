@@ -19,8 +19,8 @@ export function TooltipContent({
       <TooltipPrimitive.Content
         sideOffset={sideOffset}
         className={cn(
-          "z-50 overflow-hidden rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs text-zinc-950 shadow-md",
-          "dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-50",
+          "z-50 overflow-hidden rounded-xl glass px-3 py-2 text-xs font-semibold text-foreground/85",
+          "outline outline-1 outline-[var(--card-stroke)] glow-cyan",
           className,
         )}
         {...props}

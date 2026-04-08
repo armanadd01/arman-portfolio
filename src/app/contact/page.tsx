@@ -1,9 +1,11 @@
-import { ContactSection } from "@/app/sections/contact";
+import { ContactHero } from "@/app/sections/contact/ContactHero";
+import { ContactBody } from "@/app/sections/contact/ContactBody";
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-16">
-      <ContactSection />
-    </div>
+    <main>
+      <ContactHero />
+      <ContactBody />
+    </main>
   );
 }

@@ -5,7 +5,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+import Link from "next/link";
+
+import { CheckCircle2 } from "lucide-react";
+
 import { Button } from "@/app/components/ui/button";
+import { Input } from "@/app/components/ui/input";
+import { Textarea } from "@/app/components/ui/textarea";
 import {
   Dialog,
   DialogContent,
@@ -60,13 +66,13 @@ export function ContactSection() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-4 py-20">
       <Reveal>
-        <h2 className="font-display text-headline-md text-[var(--foreground)]">
+        <h2 className="font-display text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">
           Contact
         </h2>
       </Reveal>
 
       <Reveal delay={0.05}>
-        <p className="text-body-lg mt-3 max-w-2xl text-[color:rgba(229,226,225,0.72)]">
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
           Send a message—this uses React Hook Form + Yup validation and posts to
           a typed API route.
         </p>
@@ -75,51 +81,53 @@ export function ContactSection() {
       <Reveal delay={0.1}>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="mt-8 grid gap-4 rounded-2xl surface-container-low p-6"
+          className="card-luminal mt-8 grid gap-6 rounded-3xl bg-surface-low p-8"
         >
           <div className="grid gap-2">
-            <label className="text-label-md text-[color:rgba(229,226,225,0.65)]">
+            <label className="text-[11px] font-semibold tracking-widest text-foreground/55">
               Name
             </label>
-            <input
-              className="h-10 rounded-2xl bg-[var(--surface-container-lowest)] px-3 text-sm text-[var(--foreground)] outline-none transition-colors focus:bg-[var(--surface-bright)] focus:ring-2 focus:ring-[var(--primary)]/30"
+            <Input
+              invalid={Boolean(errors.name)}
               {...register("name")}
               autoComplete="name"
             />
             {errors.name ? (
-              <p className="text-xs text-red-600">{errors.name.message}</p>
+              <p className="text-xs font-semibold text-red-500">{errors.name.message}</p>
             ) : null}
           </div>
 
           <div className="grid gap-2">
-            <label className="text-label-md text-[color:rgba(229,226,225,0.65)]">
+            <label className="text-[11px] font-semibold tracking-widest text-foreground/55">
               Email
             </label>
-            <input
-              className="h-10 rounded-2xl bg-[var(--surface-container-lowest)] px-3 text-sm text-[var(--foreground)] outline-none transition-colors focus:bg-[var(--surface-bright)] focus:ring-2 focus:ring-[var(--primary)]/30"
+            <Input
+              invalid={Boolean(errors.email)}
               {...register("email")}
               autoComplete="email"
             />
             {errors.email ? (
-              <p className="text-xs text-red-600">{errors.email.message}</p>
+              <p className="text-xs font-semibold text-red-500">{errors.email.message}</p>
             ) : null}
           </div>
 
           <div className="grid gap-2">
-            <label className="text-label-md text-[color:rgba(229,226,225,0.65)]">
+            <label className="text-[11px] font-semibold tracking-widest text-foreground/55">
               Message
             </label>
-            <textarea
-              className="min-h-32 rounded-2xl bg-[var(--surface-container-lowest)] px-3 py-2 text-sm text-[var(--foreground)] outline-none transition-colors focus:bg-[var(--surface-bright)] focus:ring-2 focus:ring-[var(--primary)]/30"
+            <Textarea
+              invalid={Boolean(errors.message)}
               {...register("message")}
             />
             {errors.message ? (
-              <p className="text-xs text-red-600">{errors.message.message}</p>
+              <p className="text-xs font-semibold text-red-500">
+                {errors.message.message}
+              </p>
             ) : null}
           </div>
 
           {serverError ? (
-            <p className="text-sm text-red-600">{serverError}</p>
+            <p className="text-sm font-semibold text-red-500">{serverError}</p>
           ) : null}
 
           <div className="flex items-center justify-end">
@@ -131,13 +139,25 @@ export function ContactSection() {
       </Reveal>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Message sent</DialogTitle>
-            <DialogDescription>
-              Thanks for reaching out. I’ll reply as soon as possible.
-            </DialogDescription>
-          </DialogHeader>
+        <DialogContent className="max-w-md">
+          <div className="flex flex-col items-center text-center">
+            <div className="grid h-12 w-12 place-items-center rounded-full bg-black/10 outline outline-1 outline-[rgba(255,255,255,0.08)] dark:bg-white/10">
+              <CheckCircle2 className="h-6 w-6 text-primary" />
+            </div>
+            <DialogHeader className="mt-6">
+              <DialogTitle>Message Sent!</DialogTitle>
+              <DialogDescription>
+                Thank you for reaching out. I&apos;ll get back to you within 24 hours.
+              </DialogDescription>
+            </DialogHeader>
+
+            <Link
+              href="/"
+              className="mt-7 inline-flex h-11 w-full items-center justify-center rounded-2xl bg-primary px-6 text-sm font-semibold text-white dark:text-black"
+            >
+              Back to Home
+            </Link>
+          </div>
         </DialogContent>
       </Dialog>
     </section>

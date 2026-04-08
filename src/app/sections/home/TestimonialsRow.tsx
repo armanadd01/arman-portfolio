@@ -36,7 +36,7 @@ export function TestimonialsRow() {
           {testimonials.map((t) => (
             <Card
               key={t.name}
-              className="bg-surface-low p-8 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]"
+              className="bg-surface-low p-8"
             >
               <div className="flex gap-1 text-primary">
                 {Array.from({ length: 5 }).map((_, i) => (

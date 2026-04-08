@@ -32,7 +32,7 @@ export function ScrollBar({
       )}
       {...props}
     >
-      <ScrollAreaPrimitive.Thumb className="relative flex-1 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+      <ScrollAreaPrimitive.Thumb className="relative flex-1 rounded-full bg-black/20 dark:bg-white/20" />
     </ScrollAreaPrimitive.Scrollbar>
   );
 }
@@ -43,7 +43,7 @@ export function ScrollAreaCorner({
 }: React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Corner>) {
   return (
     <ScrollAreaPrimitive.Corner
-      className={cn("bg-zinc-100 dark:bg-zinc-900", className)}
+      className={cn("bg-black/10 dark:bg-white/10", className)}
       {...props}
     />
   );

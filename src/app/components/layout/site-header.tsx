@@ -29,7 +29,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 glass glow-cyan">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="font-display tracking-tight text-[var(--foreground)]">
-          Your Name
+          Arman Nahid
         </Link>
 
         <div className="hidden md:block">
@@ -40,7 +40,7 @@ export function SiteHeader() {
                   <NavigationMenuLink asChild>
                     <a
                       href={item.href}
-                      className="inline-flex h-10 items-center justify-center rounded-[var(--radius-md)] px-4 text-sm font-medium text-[color:rgba(229,226,225,0.75)] transition-colors hover:bg-[var(--surface-container-low)] hover:text-[var(--foreground)]"
+                      className="inline-flex h-10 items-center justify-center rounded-[var(--radius-md)] px-4 text-sm font-medium text-[color:rgba(229,226,225,0.75)] transition-colors hover:bg-[var(--surface-container-low)] hover:text-[var(--foreground)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60 active:translate-y-px"
                     >
                       {item.label}
                     </a>

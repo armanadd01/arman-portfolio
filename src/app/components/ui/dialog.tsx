@@ -18,7 +18,7 @@ export function DialogContent({
     <DialogPrimitive.Portal>
       <DialogPrimitive.Overlay
         className={cn(
-          "fixed inset-0 z-50 bg-black/55 backdrop-blur-sm",
+          "fixed inset-0 z-50 bg-black/55 backdrop-blur-sm dark:bg-black/65",
           "data-[state=open]:animate-in data-[state=closed]:animate-out",
         )}
       />
@@ -65,7 +65,7 @@ export function DialogDescription({
 }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>) {
   return (
     <DialogPrimitive.Description
-      className={cn("text-body-lg text-[color:rgba(229,226,225,0.72)]", className)}
+      className={cn("text-body-lg text-muted", className)}
       {...props}
     />
   );

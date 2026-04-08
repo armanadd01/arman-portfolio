@@ -12,6 +12,7 @@ import {
 
 import { Reveal } from "@/app/components/motion/reveal";
 import { Card } from "@/app/components/ui/card";
+import { Progress } from "@/app/components/ui/progress";
 
 const items = [
   { title: "Frontend Development", pct: 98, icon: Laptop },
@@ -48,7 +49,7 @@ export function ArsenalGrid() {
             return (
               <Card
                 key={it.title}
-                className="bg-surface-low p-6 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]"
+                className="bg-surface-low p-6"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -65,11 +66,8 @@ export function ArsenalGrid() {
                 </div>
 
                 <p className="mt-3 text-xs text-foreground/55">Proficiency</p>
-                <div className="mt-3 h-1.5 w-full rounded-full bg-surface-variant">
-                  <div
-                    className="h-1.5 rounded-full bg-gradient-to-r from-primary to-secondary"
-                    style={{ width: `${it.pct}%` }}
-                  />
+                <div className="mt-3">
+                  <Progress value={it.pct} />
                 </div>
               </Card>
             );

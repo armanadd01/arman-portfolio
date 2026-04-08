@@ -22,8 +22,8 @@ export function DropdownMenuContent({
       <DropdownMenuPrimitive.Content
         sideOffset={sideOffset}
         className={cn(
-          "z-50 min-w-48 overflow-hidden rounded-xl border border-zinc-200 bg-white p-1 shadow-lg",
-          "dark:border-zinc-800 dark:bg-zinc-950",
+          "z-50 min-w-48 overflow-hidden rounded-2xl glass p-1",
+          "outline outline-1 outline-[var(--card-stroke)] glow-cyan",
           "data-[state=open]:animate-in data-[state=closed]:animate-out",
           className,
         )}
@@ -41,8 +41,8 @@ export function DropdownMenuItem({
     <DropdownMenuPrimitive.Item
       className={cn(
         "flex cursor-default select-none items-center rounded-lg px-3 py-2 text-sm",
-        "text-zinc-950 outline-none",
-        "focus:bg-zinc-100 dark:text-zinc-50 dark:focus:bg-zinc-900",
+        "text-foreground/85 outline-none",
+        "focus:bg-black/10 dark:focus:bg-white/10",
         className,
       )}
       {...props}
@@ -56,7 +56,7 @@ export function DropdownMenuSeparator({
 }: React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>) {
   return (
     <DropdownMenuPrimitive.Separator
-      className={cn("my-1 h-px bg-zinc-200 dark:bg-zinc-800", className)}
+      className={cn("my-1 h-px bg-surface-variant/70", className)}
       {...props}
     />
   );

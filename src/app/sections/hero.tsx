@@ -12,9 +12,9 @@ export function HeroSection() {
       <Spotlight />
       <BackgroundBeams />
 
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:py-28">
+      <div className="mx-auto max-w-6xl px-4 pt-20 pb-12">
         <Reveal>
-          <p className="text-label-md text-[color:rgba(229,226,225,0.65)]">
+          <p className="text-label-md text-foreground/55">
             Product-focused Frontend Engineer
           </p>
         </Reveal>
@@ -26,7 +26,7 @@ export function HeroSection() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <p className="text-body-lg mt-6 max-w-2xl text-pretty text-[color:rgba(229,226,225,0.72)]">
+          <p className="text-body-lg mt-6 max-w-2xl text-pretty text-muted">
             Next.js App Router, TypeScript, Tailwind CSS, Radix UI primitives, and
             Framer Motion—shipped with performance, semantics, and polished UX.
           </p>
@@ -48,7 +48,7 @@ export function HeroSection() {
         <Reveal delay={0.2}>
           <div className="mt-10 flex items-center gap-4 text-sm">
             <a
-              className="inline-flex items-center gap-2 text-[color:rgba(229,226,225,0.72)] hover:text-[var(--foreground)]"
+              className="inline-flex items-center gap-2 text-muted hover:text-foreground"
               href="https://github.com"
               target="_blank"
               rel="noreferrer"
@@ -56,7 +56,7 @@ export function HeroSection() {
               <Link className="h-4 w-4" /> GitHub
             </a>
             <a
-              className="inline-flex items-center gap-2 text-[color:rgba(229,226,225,0.72)] hover:text-[var(--foreground)]"
+              className="inline-flex items-center gap-2 text-muted hover:text-foreground"
               href="https://linkedin.com"
               target="_blank"
               rel="noreferrer"

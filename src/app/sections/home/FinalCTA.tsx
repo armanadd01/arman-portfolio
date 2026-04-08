@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export function FinalCTA() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-24">
+    <section className="mx-auto max-w-6xl px-4 py-20">
       <Reveal>
         <div className="relative overflow-hidden rounded-[32px] bg-surface-low px-6 py-16 sm:px-14">
           <div className="pointer-events-none absolute inset-0">
@@ -24,13 +24,13 @@ export function FinalCTA() {
             <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className="signature-gradient inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-semibold text-black"
+                className="signature-gradient inline-flex h-11 items-center justify-center rounded-full px-6 text-sm font-semibold text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60 active:translate-y-px dark:text-black"
               >
                 Start a Conversation
               </Link>
               <Link
                 href="/hire"
-                className="inline-flex h-11 items-center justify-center rounded-full bg-black/35 px-6 text-sm font-semibold text-foreground/85 backdrop-blur"
+                className="inline-flex h-11 items-center justify-center rounded-full bg-black/10 px-6 text-sm font-semibold text-foreground/85 backdrop-blur transition-all hover:bg-black/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60 active:translate-y-px dark:bg-white/10 dark:hover:bg-white/15"
               >
                 View My Services
               </Link>
