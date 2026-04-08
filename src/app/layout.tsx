@@ -47,10 +47,14 @@ export default function RootLayout({
           }}
         />
         <div className="relative min-h-screen surface text-foreground">
+          <div className="ambient-bg" />
           <div className="neural-blur" />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <div className="dotted-field" />
+          <div className="relative z-10">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
         </div>
       </body>
     </html>

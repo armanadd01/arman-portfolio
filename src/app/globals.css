@@ -21,7 +21,7 @@
   --glow-cyan: rgba(0, 163, 255, 0.16);
 
   --card-stroke: rgba(0, 0, 0, 0.12);
-  --card-shadow: rgba(17, 24, 39, 0.10);
+  --card-shadow: rgba(17, 24, 39, 0.1);
   --card-glow: rgba(29, 33, 202, 0.14);
 
   --progress-from: 29 33 202;
@@ -61,16 +61,43 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
-    "Noto Sans", "Liberation Sans", sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-sans:
+    Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans",
+    "Liberation Sans", sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
 
 body {
   background: rgb(var(--background));
   color: rgb(var(--foreground));
   font-family: var(--font-sans);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(
+      900px circle at 18% 22%,
+      rgb(var(--primary) / 0.14),
+      transparent 60%
+    ),
+    radial-gradient(
+      720px circle at 82% 18%,
+      rgb(var(--secondary) / 0.14),
+      transparent 62%
+    ),
+    radial-gradient(
+      880px circle at 56% 86%,
+      rgb(var(--accent) / 0.1),
+      transparent 60%
+    );
+  opacity: 1;
 }
 
 html {
@@ -154,15 +181,19 @@ html {
 }
 
 .signature-gradient {
-  background-image: linear-gradient(135deg, rgb(var(--primary)), rgb(var(--secondary)));
+  background-image: linear-gradient(
+    135deg,
+    rgb(var(--primary)),
+    rgb(var(--secondary))
+  );
 }
 
 .text-muted {
-  color: rgb(var(--foreground) / 0.70);
+  color: rgb(var(--foreground) / 0.7);
 }
 
 .text-subtle {
-  color: rgb(var(--foreground) / 0.60);
+  color: rgb(var(--foreground) / 0.6);
 }
 
 .neural-blur {
@@ -170,6 +201,36 @@ html {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 0;
+}
+
+.ambient-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgb(var(--primary) / 0.14) 0%,
+      transparent 42%,
+      rgb(var(--secondary) / 0.10) 100%
+    ),
+    radial-gradient(1100px circle at 18% 58%, rgb(var(--primary) / 0.12), transparent 62%),
+    radial-gradient(1100px circle at 82% 78%, rgb(var(--secondary) / 0.10), transparent 62%);
+  opacity: 1;
+}
+
+.dark .ambient-bg {
+  background:
+    linear-gradient(
+      135deg,
+      rgb(var(--primary) / 0.10) 0%,
+      transparent 40%,
+      rgb(var(--secondary) / 0.08) 100%
+    ),
+    radial-gradient(1200px circle at 18% 58%, rgb(var(--primary) / 0.10), transparent 62%),
+    radial-gradient(1200px circle at 82% 78%, rgb(var(--secondary) / 0.08), transparent 62%);
 }
 
 .neural-blur::before,
@@ -184,16 +245,70 @@ html {
   animation: neural-drift 18s ease-in-out infinite;
 }
 
+.neural-blur::before,
+.neural-blur::after {
+  opacity: 0.08;
+}
+
+.dark .neural-blur::before,
+.dark .neural-blur::after {
+  opacity: 0.1;
+}
+
+.dotted-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.dotted-field::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.10) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.35;
+  transition:
+    opacity 240ms ease,
+    filter 240ms ease;
+}
+
+.dark .dotted-field::before {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  opacity: 0.40;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .surface:hover .dotted-field::before {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 14px rgb(var(--accent) / 0.24));
+  }
+
+  .dark .surface:hover .dotted-field::before {
+    filter: drop-shadow(0 0 18px rgb(var(--primary) / 0.22));
+  }
+}
+
 .neural-blur::before {
   left: -180px;
   top: -120px;
-  background: radial-gradient(circle at center, rgb(var(--primary)), transparent 60%);
+  background: radial-gradient(
+    circle at center,
+    rgb(var(--primary)),
+    transparent 60%
+  );
 }
 
 .neural-blur::after {
   right: -220px;
   bottom: -160px;
-  background: radial-gradient(circle at center, rgb(var(--secondary)), transparent 60%);
+  background: radial-gradient(
+    circle at center,
+    rgb(var(--secondary)),
+    transparent 60%
+  );
   animation-duration: 22s;
 }
 
