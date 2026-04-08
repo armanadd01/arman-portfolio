@@ -3,6 +3,7 @@ import type { Project } from "@/app/types/project";
 export const projects: Project[] = [
   {
     id: "portfolio",
+    slug: "personal-portfolio",
     title: "Personal Portfolio",
     description:
       "A high-performance portfolio built with Next.js App Router, accessible Radix UI primitives, and smooth Framer Motion interactions.",
@@ -16,6 +17,7 @@ export const projects: Project[] = [
   },
   {
     id: "saas-dashboard",
+    slug: "saas-dashboard",
     title: "SaaS Dashboard",
     description:
       "A modular dashboard UI with strong typing, composable components, and performance-focused rendering patterns.",
@@ -24,3 +26,7 @@ export const projects: Project[] = [
     links: [{ label: "Case Study", href: "#" }],
   },
 ];
+
+export function getProjectBySlug(slug: string) {
+  return projects.find((p) => p.slug === slug);
+}

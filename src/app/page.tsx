@@ -1,21 +1,21 @@
-import { SiteHeader } from "@/app/components/layout/site-header";
-import { SiteFooter } from "@/app/components/layout/site-footer";
-import { HeroSection } from "@/app/sections/hero";
-import { ProjectsSection } from "@/app/sections/projects";
-import { SkillsSection } from "@/app/sections/skills";
-import { ContactSection } from "@/app/sections/contact";
+import { HomeHero } from "@/app/sections/home/HomeHero";
+import { AboutStrip } from "@/app/sections/home/AboutStrip";
+import { ArsenalGrid } from "@/app/sections/home/ArsenalGrid";
+import { CaseStudiesRow } from "@/app/sections/home/CaseStudiesRow";
+import { RoadmapSection } from "@/app/sections/home/RoadmapSection";
+import { TestimonialsRow } from "@/app/sections/home/TestimonialsRow";
+import { FinalCTA } from "@/app/sections/home/FinalCTA";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-50 text-zinc-950 dark:bg-black dark:text-zinc-50">
-      <SiteHeader />
-      <main>
-        <HeroSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <ContactSection />
-      </main>
-      <SiteFooter />
+    <div>
+      <HomeHero />
+      <AboutStrip />
+      <ArsenalGrid />
+      <CaseStudiesRow />
+      <RoadmapSection />
+      <TestimonialsRow />
+      <FinalCTA />
     </div>
   );
 }

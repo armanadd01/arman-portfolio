@@ -60,13 +60,13 @@ export function ContactSection() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-4 py-20">
       <Reveal>
-        <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+        <h2 className="font-display text-headline-md text-[var(--foreground)]">
           Contact
         </h2>
       </Reveal>
 
       <Reveal delay={0.05}>
-        <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+        <p className="text-body-lg mt-3 max-w-2xl text-[color:rgba(229,226,225,0.72)]">
           Send a message—this uses React Hook Form + Yup validation and posts to
           a typed API route.
         </p>
@@ -75,14 +75,14 @@ export function ContactSection() {
       <Reveal delay={0.1}>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="mt-8 grid gap-4 rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950"
+          className="mt-8 grid gap-4 rounded-2xl surface-container-low p-6"
         >
           <div className="grid gap-2">
-            <label className="text-sm font-medium text-zinc-950 dark:text-zinc-50">
+            <label className="text-label-md text-[color:rgba(229,226,225,0.65)]">
               Name
             </label>
             <input
-              className="h-10 rounded-xl border border-zinc-200 bg-transparent px-3 text-sm text-zinc-950 outline-none focus:ring-2 focus:ring-zinc-400 dark:border-zinc-800 dark:text-zinc-50 dark:focus:ring-zinc-600"
+              className="h-10 rounded-2xl bg-[var(--surface-container-lowest)] px-3 text-sm text-[var(--foreground)] outline-none transition-colors focus:bg-[var(--surface-bright)] focus:ring-2 focus:ring-[var(--primary)]/30"
               {...register("name")}
               autoComplete="name"
             />
@@ -92,11 +92,11 @@ export function ContactSection() {
           </div>
 
           <div className="grid gap-2">
-            <label className="text-sm font-medium text-zinc-950 dark:text-zinc-50">
+            <label className="text-label-md text-[color:rgba(229,226,225,0.65)]">
               Email
             </label>
             <input
-              className="h-10 rounded-xl border border-zinc-200 bg-transparent px-3 text-sm text-zinc-950 outline-none focus:ring-2 focus:ring-zinc-400 dark:border-zinc-800 dark:text-zinc-50 dark:focus:ring-zinc-600"
+              className="h-10 rounded-2xl bg-[var(--surface-container-lowest)] px-3 text-sm text-[var(--foreground)] outline-none transition-colors focus:bg-[var(--surface-bright)] focus:ring-2 focus:ring-[var(--primary)]/30"
               {...register("email")}
               autoComplete="email"
             />
@@ -106,11 +106,11 @@ export function ContactSection() {
           </div>
 
           <div className="grid gap-2">
-            <label className="text-sm font-medium text-zinc-950 dark:text-zinc-50">
+            <label className="text-label-md text-[color:rgba(229,226,225,0.65)]">
               Message
             </label>
             <textarea
-              className="min-h-32 rounded-xl border border-zinc-200 bg-transparent px-3 py-2 text-sm text-zinc-950 outline-none focus:ring-2 focus:ring-zinc-400 dark:border-zinc-800 dark:text-zinc-50 dark:focus:ring-zinc-600"
+              className="min-h-32 rounded-2xl bg-[var(--surface-container-lowest)] px-3 py-2 text-sm text-[var(--foreground)] outline-none transition-colors focus:bg-[var(--surface-bright)] focus:ring-2 focus:ring-[var(--primary)]/30"
               {...register("message")}
             />
             {errors.message ? (

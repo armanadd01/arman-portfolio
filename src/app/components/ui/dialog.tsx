@@ -18,15 +18,14 @@ export function DialogContent({
     <DialogPrimitive.Portal>
       <DialogPrimitive.Overlay
         className={cn(
-          "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm",
+          "fixed inset-0 z-50 bg-black/55 backdrop-blur-sm",
           "data-[state=open]:animate-in data-[state=closed]:animate-out",
         )}
       />
       <DialogPrimitive.Content
         className={cn(
           "fixed left-1/2 top-1/2 z-50 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl",
-          "border border-zinc-200 bg-white p-6 shadow-xl",
-          "dark:border-zinc-800 dark:bg-zinc-950",
+          "glass glow-cyan p-6 outline outline-1 outline-[var(--outline-variant)]",
           "focus:outline-none",
           className,
         )}
@@ -51,7 +50,10 @@ export function DialogTitle({
 }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>) {
   return (
     <DialogPrimitive.Title
-      className={cn("text-lg font-semibold text-zinc-950 dark:text-zinc-50", className)}
+      className={cn(
+        "font-display text-headline-md text-[var(--foreground)]",
+        className,
+      )}
       {...props}
     />
   );
@@ -63,7 +65,7 @@ export function DialogDescription({
 }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>) {
   return (
     <DialogPrimitive.Description
-      className={cn("text-sm text-zinc-600 dark:text-zinc-400", className)}
+      className={cn("text-body-lg text-[color:rgba(229,226,225,0.72)]", className)}
       {...props}
     />
   );

@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import "@fontsource/inter/latin.css";
+import "@fontsource/space-grotesk/latin.css";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { Header } from "@/app/components/layout/Header";
+import { Footer } from "@/app/components/layout/Footer";
+
+const fontVars = "font-sans";
 
 export const metadata: Metadata = {
   title: {
@@ -40,7 +37,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fontVars} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <script
@@ -49,7 +46,12 @@ export default function RootLayout({
               "(() => { try { const t = localStorage.getItem('theme'); const m = t === 'dark' || t === 'light' ? t : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.classList.toggle('dark', m === 'dark'); } catch {} })();",
           }}
         />
-        {children}
+        <div className="relative min-h-screen surface text-foreground">
+          <div className="neural-blur" />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
