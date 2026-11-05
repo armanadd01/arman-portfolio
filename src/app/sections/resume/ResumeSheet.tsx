@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 import {
@@ -15,6 +16,7 @@ import {
 
 import { Reveal } from "@/app/components/motion/reveal";
 import { projects } from "@/app/lib/projects";
+import { useState } from "react";
 
 function SidebarRow({
   icon: Icon,
@@ -62,11 +64,20 @@ function SectionTitle({
 
 const work = [
   {
+    role: "Full-Stack Web Developer / Technical Partner",
+    company: "PAM1 LLC (Rent FYV / FYVCO Marketplace Ecosystem)",
+    range: "May 2026 - Present",
+    summary:
+      "Engineered and launched the FYVCO marketplace, regional web portals, and partner-brand web properties across 21+ U.S. markets with a focus on local SEO, high-converting booking funnels, and scalable architecture.",
+    left: ["Marketplace builds", "Regional landing page systems"],
+    right: ["Booking funnel optimization", "Search-driven UX"],
+  },
+  {
     role: "Sr. Web Developer",
     company: "Cut Out Image, Inc.",
-    range: "Oct 2021 - Present",
+    range: "Oct 2021 - Apr 2026",
     summary:
-      "Working on React and Node.js applications alongside WordPress themes/plugins. Focused on performance, SEO, and maintainable architecture.",
+      "Built and optimized WordPress and React-based platforms, improving performance, SEO, and maintainable front-end architecture for production business systems.",
     left: ["React + Node.js delivery", "WordPress themes & plugins"],
     right: ["Performance/SEO improvements"],
   },
@@ -92,7 +103,9 @@ const work = [
 
 export function ResumeSheet() {
   const selectedProjects = projects.slice(0, 4);
-
+  const [profileImageSrc, setProfileImageSrc] = useState(
+    "/Arman-Habib-Nahid-Portfolio.webp",
+  );
   return (
     <section className="mx-auto max-w-6xl px-4 pb-20">
       <Reveal>
@@ -102,11 +115,12 @@ export function ResumeSheet() {
               <div className="flex flex-col items-center text-center">
                 <div className="relative h-24 w-24 overflow-hidden rounded-full bg-surface-variant outline outline-1 outline-[rgba(255,255,255,0.10)]">
                   <Image
-                    src="/profile-placeholder.svg"
+                    src={profileImageSrc}
                     alt="Profile"
                     fill
                     sizes="96px"
                     className="object-cover"
+                    onError={() => setProfileImageSrc("/profile-placeholder.svg")}
                   />
                 </div>
 
@@ -114,7 +128,7 @@ export function ResumeSheet() {
                   Md Arman Habib Nahid
                 </p>
                 <p className="mt-2 text-[11px] font-semibold tracking-widest text-primary/80">
-                  SR. WEB DEVELOPER
+                  FULL-STACK WEB DEVELOPER
                 </p>
               </div>
 
@@ -145,8 +159,9 @@ export function ResumeSheet() {
                     FRONTEND
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    <Chip text="JavaScript" />
+                    <Chip text="Next.js" />
                     <Chip text="React" />
+                    <Chip text="TypeScript" />
                     <Chip text="Tailwind CSS" />
                     <Chip text="WordPress" />
                   </div>
@@ -158,6 +173,8 @@ export function ResumeSheet() {
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     <Chip text="Node.js" />
+                    <Chip text="Express" />
+                    <Chip text="REST APIs" />
                     <Chip text="MongoDB" />
                     <Chip text="MySQL" />
                   </div>
@@ -169,8 +186,9 @@ export function ResumeSheet() {
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     <Chip text="Git/GitHub" />
-                    <Chip text="REST APIs" />
-                    <Chip text="VS Code" />
+                    <Chip text="SEO" />
+                    <Chip text="Performance" />
+                    <Chip text="CMS" />
                   </div>
                 </div>
               </div>
@@ -207,11 +225,11 @@ export function ResumeSheet() {
                 <div>
                   <SectionTitle icon={Blocks} title="Professional Profile" />
                   <p className="mt-5 text-sm leading-7 text-muted">
-                    Experienced web developer with 6+ years in JavaScript,
-                    React, Node.js, PHP, and WordPress theme development.
-                    Skilled in NoSQL/MySQL databases and Tailwind CSS for
-                    responsive interfaces. Committed to clean code, robust
-                    architecture, and scalable delivery.
+                    Full-stack web developer and technical partner with a record of
+                    building conversion-focused marketplace platforms, regional web
+                    portals, and high-performing brand sites. Skilled in React,
+                    Next.js, TypeScript, Node.js, and WordPress with strong emphasis on
+                    SEO, performance optimization, and scalable UX design.
                   </p>
                 </div>
 

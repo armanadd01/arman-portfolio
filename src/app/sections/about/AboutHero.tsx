@@ -1,4 +1,5 @@
 import { Reveal } from "@/app/components/motion/reveal";
+import { EncryptedText } from "@/app/components/aceternity/encrypted-text";
 
 export function AboutHero() {
   return (
@@ -25,7 +26,14 @@ export function AboutHero() {
                     "linear-gradient(90deg, rgb(var(--secondary)), rgb(var(--primary)), rgb(var(--accent)))",
                 }}
               >
-                Turning complex problems into
+                {/* Turning complex problems into */}
+                <EncryptedText
+                text="Turning complex problems into"
+                encryptedClassName="text-foreground/60"
+                revealedClassName="text-foreground"
+                revealDelayMs={35}
+                className="inline-block"
+              />
               </span>
               <br />
               <span
@@ -35,7 +43,14 @@ export function AboutHero() {
                     "linear-gradient(90deg, rgb(var(--secondary)), rgb(var(--primary)), rgb(var(--accent)))",
                 }}
               >
-                elegant digital realities.
+                {/* elegant digital realities. */}
+                <EncryptedText
+                text="elegant digital realities."
+                encryptedClassName="text-foreground/60"
+                revealedClassName="text-foreground"
+                revealDelayMs={35}
+                className="inline-block"
+              />
               </span>
             </h1>
           </Reveal>

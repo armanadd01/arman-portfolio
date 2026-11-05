@@ -3,9 +3,9 @@ import "./globals.css";
 
 import "@fontsource/inter/latin.css";
 import "@fontsource/space-grotesk/latin.css";
-
 import { Header } from "@/app/components/layout/Header";
 import { Footer } from "@/app/components/layout/Footer";
+import { HeroHighlight } from "@/app/components/aceternity/hero-highlight";
 
 const fontVars = "font-sans";
 
@@ -46,15 +46,17 @@ export default function RootLayout({
               "(() => { try { const t = localStorage.getItem('theme'); const m = t === 'dark' || t === 'light' ? t : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); document.documentElement.classList.toggle('dark', m === 'dark'); } catch {} })();",
           }}
         />
-        <div className="relative min-h-screen surface text-foreground">
-          <div className="ambient-bg" />
-          <div className="neural-blur" />
-          <div className="dotted-field" />
-          <div className="relative z-10">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
+        <div className="relative min-h-screen overflow-hidden surface text-foreground">
+          <HeroHighlight
+            // containerClassName="w-full !bg-transparent"
+            // className="min-h-screen"
+          >
+            <div className="relative z-10">
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+          </HeroHighlight>
         </div>
       </body>
     </html>

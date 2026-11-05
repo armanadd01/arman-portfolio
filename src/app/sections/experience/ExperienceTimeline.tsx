@@ -6,9 +6,22 @@ import { Reveal } from "@/app/components/motion/reveal";
 
 const items = [
   {
+    title: "Full-Stack Web Developer / Technical Partner",
+    org: "PAM1 LLC (Rent FYV / FYVCO Marketplace Ecosystem)",
+    range: "May 2026 - Present",
+    icon: Server,
+    bullets: [
+      "Built and launched the FYVCO marketplace ecosystem and regional luxury fleet portals for 21+ U.S. markets.",
+      "Developed city landing pages, filtering/search experiences, and premium booking funnels for high-intent customers.",
+      "Expanded partner-brand and ecosystem sites including luxury event, insurance, and global rental verticals.",
+    ],
+    chips: ["Next.js", "React", "SEO", "Marketplace", "WordPress"],
+    avatar: "/profile-placeholder.svg",
+  },
+  {
     title: "Sr. Web Developer",
     org: "Cut Out Image, Inc.",
-    range: "Oct 2021 - Present",
+    range: "Oct 2021 - Apr 2026",
     icon: Server,
     bullets: [
       "Built and maintained production web applications using React and Node.js.",

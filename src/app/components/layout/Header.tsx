@@ -20,6 +20,9 @@ const links = [
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [profileImageSrc, setProfileImageSrc] = useState(
+    "/Arman-Habib-Nahid-Portfolio-Header-cutout.webp",
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -67,7 +70,7 @@ export function Header() {
               <Download className="h-4 w-4" />
               Resume
             </Link>
-            <Button asChild>
+            <Button asChild className="dark:bg-foreground dark:text-white text-black">
               <Link href="/hire">Hire Me</Link>
             </Button>
 
@@ -77,11 +80,12 @@ export function Header() {
 
             <div className="relative h-9 w-9 overflow-hidden rounded-full bg-surface-variant">
               <Image
-                src="/profile-placeholder.svg"
+                src={profileImageSrc}
                 alt="Profile"
                 fill
                 sizes="36px"
                 className="object-cover"
+                onError={() => setProfileImageSrc("/profile-placeholder.svg")}
               />
             </div>
           </div>

@@ -19,7 +19,7 @@ export function SkillsFinalCTA() {
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex h-11 items-center justify-center rounded-2xl bg-primary px-10 text-sm font-semibold text-white shadow-[0_18px_50px_-28px_rgba(0,163,255,0.4)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60 active:translate-y-px dark:text-black"
+                className="inline-flex h-11 items-center justify-center rounded-2xl bg-primary px-10 text-sm font-semibold text-black shadow-[0_18px_50px_-28px_rgba(0,163,255,0.4)] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)]/60 active:translate-y-px dark:text-white"
               >
                 Let&apos;s Talk Shop
               </Link>

@@ -10,7 +10,7 @@ export function Card({ className, variant = "low", ...props }: CardProps) {
   return (
     <div
       className={cn(
-        "card-luminal rounded-2xl p-6 transition-shadow duration-200",
+        "card-luminal hover-border-gradient rounded-2xl p-6 transition-shadow duration-200",
         variant === "low" && "bg-surface-low",
         variant === "high" && "bg-surface-high",
         variant === "glass" && "glass",

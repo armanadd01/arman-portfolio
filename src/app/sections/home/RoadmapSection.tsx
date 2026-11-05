@@ -5,11 +5,18 @@ import { Card } from "@/app/components/ui/card";
 
 const timeline = [
   {
-    range: "2021 — PRESENT",
+    range: "2026 — PRESENT",
+    title: "Full-Stack Web Developer / Technical Partner",
+    meta: "PAM1 LLC • U.S. & Global Fleet Ecosystem",
+    desc:
+      "Built the FYVCO marketplace and premium regional fleet portals across 21+ U.S. markets, with custom landing pages and booking funnels.",
+  },
+  {
+    range: "2021 — 2026",
     title: "Sr. Web Developer",
     meta: "Cut Out Image, Inc. • Dhaka",
     desc:
-      "React, Node.js, MongoDB/Mongoose, and WordPress theme & plugin development.",
+      "React, Node.js, MongoDB/Mongoose, and WordPress theme & plugin development focused on performance and SEO.",
   },
   {
     range: "2021",
@@ -52,15 +59,15 @@ export function RoadmapSection() {
               <ul className="mt-4 space-y-3 text-sm text-foreground/65">
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                  Building responsive, performance-focused UI with React and Tailwind CSS.
+                  Building luxury marketplace experiences and market-specific rental landing pages with React and Next.js.
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                  Developing APIs and full-stack features using Node.js and MongoDB.
+                  Designing conversion-driven booking funnels, search flows, and premium multi-brand site architecture.
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                  WordPress theme and plugin development with security and SEO awareness.
+                  Delivering SEO-focused WordPress, CMS, and performance optimization for growth-driven business websites.
                 </li>
               </ul>
             </Card>

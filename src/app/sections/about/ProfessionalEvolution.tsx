@@ -4,13 +4,22 @@ import { Reveal } from "@/app/components/motion/reveal";
 
 const items = [
   {
-    range: "2021 - PRESENT",
+    range: "2026 - PRESENT",
+    title: "Full-Stack Web Developer / Technical Partner",
+    org: "PAM1 LLC (Rent FYV / FYVCO Marketplace Ecosystem)",
+    desc:
+      "Engineered premium marketplace and regional fleet portals across 21+ U.S. markets, driving direct bookings through search, filters, landing pages, and strong local SEO strategy.",
+    chips: ["Next.js", "React", "SEO", "Marketplace"],
+    icon: Briefcase,
+  },
+  {
+    range: "2021 - 2026",
     title: "Sr. Web Developer",
     org: "Cut Out Image, Inc.",
     desc:
-      "Working on React and Node.js applications alongside WordPress theme and plugin development. Focused on performance, SEO, and maintainable delivery.",
+      "Worked on React and Node.js applications alongside WordPress themes and plugins focused on performance, maintainability, and SEO optimization.",
     chips: ["React", "Node.js", "MongoDB"],
-    icon: Briefcase,
+    icon: Zap,
   },
   {
     range: "2021",
@@ -19,7 +28,7 @@ const items = [
     desc:
       "Built responsive web interfaces with JavaScript and React and collaborated with teams to deliver features on schedule.",
     chips: ["JavaScript", "React", "REST APIs"],
-    icon: Zap,
+    icon: Layers,
   },
   {
     range: "2020 - 2021",
@@ -28,15 +37,6 @@ const items = [
     desc:
       "Worked on SEO and digital marketing and delivered WordPress sites/themes with a focus on speed and usability.",
     chips: ["WordPress", "SEO", "PHP"],
-    icon: Layers,
-  },
-  {
-    range: "2026",
-    title: "Bachelor of Arts (BA) — English Literature",
-    org: "Fareast International University (Enrolled)",
-    desc:
-      "Currently pursuing undergraduate studies while continuing professional software development.",
-    chips: ["English Literature", "Communication"],
     icon: GraduationCap,
   },
 ] as const;
